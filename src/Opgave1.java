@@ -3,8 +3,10 @@ public class Opgave1 {
 
 	public static void main(String[] args) {
 		// skrevet af Mads
-		String romer = konverterNummer(900);
-		System.out.print(romer);
+		// her indtastests det nummer man gerne vil konverterer.
+		int num = 10;
+		String romer = konverterNummer(num);
+		System.out.println(romer);
 		
 	}
 
@@ -45,7 +47,6 @@ public class Opgave1 {
 	private static int tjekI(int i, int j) {
 		// skrevet af Mads
 		int Antal = i / j;
-		System.out.println(Antal);
 		return Antal;
 	}
 
