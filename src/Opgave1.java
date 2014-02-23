@@ -4,7 +4,7 @@ public class Opgave1 {
 	public static void main(String[] args) {
 		// skrevet af Mads
 		// her indtastests det nummer man gerne vil konverterer.
-		int num = 10;
+		int num = 9;
 		String romer = konverterNummer(num);
 		System.out.println(romer);
 		
@@ -34,6 +34,9 @@ public class Opgave1 {
 			System.out.println("virker ikke");
 		}
 		
+		tjekSpicel(tusinder,femHundre,hundrer,halvTres,tiere,femere,enere);
+		
+		
 		String s = skrivstring("M",tusinder);
 		s = s + skrivstring("D", femHundre);
 		s = s + skrivstring("C", hundrer);
@@ -44,9 +47,15 @@ public class Opgave1 {
 		return s;
 	}
 
+	private static void tjekSpicel(int tusinder, int femHundre, int hundrer,
+			int halvTres, int tiere, int femere, int enere) {
+		// TODO Auto-generated method stub
+	}
+
 	private static int tjekI(int i, int j) {
 		// skrevet af Mads
 		int Antal = i / j;
+		System.out.println(Antal);
 		return Antal;
 	}
 
