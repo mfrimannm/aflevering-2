@@ -3,7 +3,7 @@ public class Opgave1 {
 
 	public static void main(String[] args) {
 		// skrevet af Mads
-		String romer = konverterNummer(2031);
+		String romer = konverterNummer(900);
 		System.out.print(romer);
 		
 	}
@@ -33,12 +33,12 @@ public class Opgave1 {
 		}
 		
 		String s = skrivstring("M",tusinder);
-		s = skrivstring("D", femHundre)	+ s;
-		s = skrivstring("C", hundrer) 	+ s;
-		s = skrivstring("L", halvTres)	+ s;
-		s = skrivstring("X", tiere)		+ s;
-		s = skrivstring("V", femere)	+ s;
-		s = skrivstring("I", enere)		+ s;
+		s = s + skrivstring("D", femHundre);
+		s = s + skrivstring("C", hundrer);
+		s = s + skrivstring("L", halvTres);
+		s = s + skrivstring("X", tiere);
+		s = s + skrivstring("V", femere);
+		s = s + skrivstring("I", enere);
 		return s;
 	}
 
