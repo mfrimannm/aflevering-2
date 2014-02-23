@@ -2,14 +2,14 @@
 public class Opgave1 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		// skrevet af Mads
 		String romer = konverterNummer(2031);
 		System.out.print(romer);
 		
 	}
 
 	private static String konverterNummer(int i) {
-		// TODO Auto-generated method stub
+		// skrevet af Mads
 		int tusinder	= tjekI(i,1000);
 		i = i - (1000*tusinder);
 		int femHundre	= tjekI(i,500);
@@ -43,14 +43,14 @@ public class Opgave1 {
 	}
 
 	private static int tjekI(int i, int j) {
-		// TODO Auto-generated method stub
+		// skrevet af Mads
 		int Antal = i / j;
 		System.out.println(Antal);
 		return Antal;
 	}
 
 	private static String skrivstring(String bogstav, int antal) {
-		// TODO Auto-generated method stub
+		// skrevet af Mads
 		String s = "";
 		for(int i=1;i<=antal;i++){
 			s = s + bogstav;
