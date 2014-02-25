@@ -50,7 +50,7 @@ public class Opgave3 {
 							/ (Math.sin(Math.toRadians(90)));
 				}
 				// brug længderne
-				if ((a + restLength) >= lengthBetweenLines) {
+				if ((a + restLength) >= lengthBetweenLines || (a + restLength) <= 0) {
 					hits++;
 				}
 			}
