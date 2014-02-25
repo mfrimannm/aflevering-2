@@ -7,7 +7,6 @@ public class Opgave1 {
 		int num = 9;
 		String romer = konverterNummer(num);
 		System.out.println(romer);
-		
 	}
 
 	private static String konverterNummer(int i) {
