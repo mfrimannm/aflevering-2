@@ -17,8 +17,6 @@ public class Opgave3 {
 			scan.close();
 			throw new IllegalArgumentException("Ingen kast bedt om");
 		}
-		System.out.println(antalKast);
-
 		double nearPi = buffonsNeedle(antalKast);
 
 		scan.close();
@@ -50,7 +48,7 @@ public class Opgave3 {
 							/ (Math.sin(Math.toRadians(90)));
 				}
 				// brug længderne
-				if ((a + restLength) >= lengthBetweenLines || (a + restLength) <= 0) {
+			if ((a + restLength) >= lengthBetweenLines  || (a + restLength) <= 0) {
 					hits++;
 				}
 			}
