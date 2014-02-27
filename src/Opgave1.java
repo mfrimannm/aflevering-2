@@ -1,70 +1,122 @@
-
 public class Opgave1 {
 
 	public static void main(String[] args) {
 		// skrevet af Mads
 		// her indtastests det nummer man gerne vil konverterer.
-		int num = 9;
-		String romer = konverterNummer(num);
-		System.out.println(romer);
+		for (int u = -2; u <= 10; u++) {
+			int num = 11;
+			if (num > -1 && num <= 3999) {
+				String romer = konverterNummer(num);
+
+				System.out.println(romer + "    " + num);
+				System.out.println("stop");
+			} else {
+				System.out.println("ikke et passende nummer");
+			}
+		}
 	}
 
 	private static String konverterNummer(int i) {
 		// skrevet af Mads
-		int tusinder	= tjekI(i,1000);
-		i = i - (1000*tusinder);
-		int femHundre	= tjekI(i,500);
-		i = i - (500*femHundre);
-		int hundrer		= tjekI(i,100);
-		i = i - (100*hundrer);
-		int halvTres	= tjekI(i,50);
-		i = i - (50*halvTres);
-		int tiere		= tjekI(i,10);
-		i = i - (10*tiere);
-		int femere		= tjekI(i,5);
-		i = i - (5*femere);
-		int enere		= tjekI(i,1);
-		i = i - (1*enere);
-		
-		if(i==0){
-			System.out.println("nice");
+		String s = "";
+
+		if (i == 0) {
+			return s = "NULLA";
 		}
-		else{
+
+		int division = 1000;
+		int antal = 0;
+		String divisionTegnOver = "";
+		String divisionTegnMellemOver = "";
+		String divisionTegn = "M";
+		String divisionTegnMellemNed = "D";
+		String divisionTegnUnder = "C";
+
+		while (i != 0) {
+			antal = tjekAntalOpIDivision(i, division);
+			System.out.println(s);
+			System.out.println(division);
+			System.out.println(antal);
+			if (antal == 0) {
+				s += "";
+			} else if (antal > 3) {
+				s += specialTal(antal, division, s, divisionTegnOver,
+						divisionTegnMellemOver, divisionTegn,
+						divisionTegnMellemNed, divisionTegnUnder);
+			} else if (antal <= 3) {
+				s += skrivRomerTal(antal, division, s, divisionTegnOver,
+						divisionTegnMellemOver, divisionTegn,
+						divisionTegnMellemNed, divisionTegnUnder);
+			}
+
+			i = i - (antal * division);
+			division = division / 10;
+			
+			if (division == 100) {
+				divisionTegnOver = "M";
+				divisionTegnMellemOver = "D";
+				divisionTegn = "C";
+				divisionTegnMellemNed = "L";
+				divisionTegnUnder = "X";
+			} else if (division == 10) {
+				divisionTegnOver = "C";
+				divisionTegnMellemOver = "L";
+				divisionTegn = "X";
+				divisionTegnMellemNed = "V";
+				divisionTegnUnder = "I";
+			} else if (division == 1) {
+				divisionTegnOver = "X";
+				divisionTegnMellemOver = "V";
+				divisionTegn = "I";
+				divisionTegnMellemNed = "";
+				divisionTegnUnder = "";
+			}
+		}
+
+		if (i == 0) {
+			System.out.println("nice der var ikke noget tilovers");
+		} else {
 			System.out.println("virker ikke");
 		}
-		
-		tjekSpicel(tusinder,femHundre,hundrer,halvTres,tiere,femere,enere);
-		
-		
-		String s = skrivstring("M",tusinder);
-		s = s + skrivstring("D", femHundre);
-		s = s + skrivstring("C", hundrer);
-		s = s + skrivstring("L", halvTres);
-		s = s + skrivstring("X", tiere);
-		s = s + skrivstring("V", femere);
-		s = s + skrivstring("I", enere);
 		return s;
 	}
 
-	private static void tjekSpicel(int tusinder, int femHundre, int hundrer,
-			int halvTres, int tiere, int femere, int enere) {
+	private static String skrivRomerTal(int antal, int division, String s,
+			String divisionTegnOver, String divisionTegnMellemOver,
+			String divisionTegn, String divisionTegnMellemNed,
+			String divisionTegnUnder) {
 		// TODO Auto-generated method stub
-	}
-
-	private static int tjekI(int i, int j) {
-		// skrevet af Mads
-		int Antal = i / j;
-		System.out.println(Antal);
-		return Antal;
-	}
-
-	private static String skrivstring(String bogstav, int antal) {
-		// skrevet af Mads
-		String s = "";
-		for(int i=1;i<=antal;i++){
-			s = s + bogstav;
+		System.out.println(division + "  " + antal + "   " + divisionTegn + "   "  + s);
+		for (int i = 1; i <= antal; i++) {
+			s = s + divisionTegn;
 		}
 		return s;
 	}
 
+	private static String specialTal(int antal, int division, String s,
+			String divisionTegnOver, String divisionTegnMellemOver,
+			String divisionTegn, String divisionTegnMellemNed,
+			String divisionTegnUnder) {
+		// TODO Auto-generated method stub
+		if (antal == 4) {
+			s += divisionTegn + divisionTegnMellemOver;
+		} else if (antal == 5) {
+			s = divisionTegnMellemOver;
+		} else if (antal == 9) {
+			s = divisionTegn + divisionTegnOver;
+		} else if (antal > 5) {
+			String k = "";
+			for (int j = 1; j <= antal - 5; j++) {
+				k += divisionTegn;
+			}
+			s = divisionTegnMellemOver + k;
+		}
+		return s;
+	}
+
+	private static int tjekAntalOpIDivision(int i, int divisionen) {
+		// skrevet af Mads
+		int Antal = i / divisionen;
+		return Antal;
+	}
 }
