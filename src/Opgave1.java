@@ -3,15 +3,15 @@ public class Opgave1 {
 	public static void main(String[] args) {
 		// skrevet af Mads
 		// her indtastests det nummer man gerne vil konverterer.
-		for (int u = -2; u <= 10; u++) {
-			int num = 11;
+		for (int u = 1; u <= 100; u++) {
+			int num = u;
 			if (num > -1 && num <= 3999) {
 				String romer = konverterNummer(num);
 
-				System.out.println(romer + "    " + num);
-				System.out.println("stop");
+			System.out.println(romer + "         " + num);
+//				System.out.println("stop");
 			} else {
-				System.out.println("ikke et passende nummer");
+//				System.out.println("ikke et passende nummer");
 			}
 		}
 	}
@@ -34,17 +34,17 @@ public class Opgave1 {
 
 		while (i != 0) {
 			antal = tjekAntalOpIDivision(i, division);
-			System.out.println(s);
-			System.out.println(division);
-			System.out.println(antal);
+//			System.out.println(s);
+//			System.out.println(division);
+//			System.out.println(antal);
 			if (antal == 0) {
 				s += "";
 			} else if (antal > 3) {
-				s += specialTal(antal, division, s, divisionTegnOver,
+				s = specialTal(antal, division, s, divisionTegnOver,
 						divisionTegnMellemOver, divisionTegn,
 						divisionTegnMellemNed, divisionTegnUnder);
 			} else if (antal <= 3) {
-				s += skrivRomerTal(antal, division, s, divisionTegnOver,
+				s = skrivRomerTal(antal, division, s, divisionTegnOver,
 						divisionTegnMellemOver, divisionTegn,
 						divisionTegnMellemNed, divisionTegnUnder);
 			}
@@ -74,9 +74,9 @@ public class Opgave1 {
 		}
 
 		if (i == 0) {
-			System.out.println("nice der var ikke noget tilovers");
+//			System.out.println("nice der var ikke noget tilovers");
 		} else {
-			System.out.println("virker ikke");
+//			System.out.println("virker ikke");
 		}
 		return s;
 	}
@@ -86,10 +86,12 @@ public class Opgave1 {
 			String divisionTegn, String divisionTegnMellemNed,
 			String divisionTegnUnder) {
 		// TODO Auto-generated method stub
-		System.out.println(division + "  " + antal + "   " + divisionTegn + "   "  + s);
-		for (int i = 1; i <= antal; i++) {
+//		System.out.println(division + "  " + antal + "   " + divisionTegn + "   "  + s);
+		for (int i = 0; i < antal; i++) {
 			s = s + divisionTegn;
 		}
+//		System.out.println(division + "  " + antal + "   " + divisionTegn + "   "  + s);
+
 		return s;
 	}
 
@@ -101,15 +103,15 @@ public class Opgave1 {
 		if (antal == 4) {
 			s += divisionTegn + divisionTegnMellemOver;
 		} else if (antal == 5) {
-			s = divisionTegnMellemOver;
+			s += divisionTegnMellemOver;
 		} else if (antal == 9) {
-			s = divisionTegn + divisionTegnOver;
+			s += divisionTegn + divisionTegnOver;
 		} else if (antal > 5) {
 			String k = "";
-			for (int j = 1; j <= antal - 5; j++) {
+			for (int j = 0; j < antal - 5; j++) {
 				k += divisionTegn;
 			}
-			s = divisionTegnMellemOver + k;
+			s += divisionTegnMellemOver + k;
 		}
 		return s;
 	}
