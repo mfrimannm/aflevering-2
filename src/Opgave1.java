@@ -1,19 +1,45 @@
+import java.util.Scanner;
+
 public class Opgave1 {
 
 	public static void main(String[] args) {
 		// skrevet af Mads
+		// String answar = "y";
+		// while (answar.charAt(0) == 'y') {
 		// her indtastests det nummer man gerne vil konverterer.
-		for (int u = 1; u <= 100; u++) {
-			int num = u;
-			if (num > -1 && num <= 3999) {
-				String romer = konverterNummer(num);
+		String romeTypes = consoleInputConvertToRome();
+		// Dette tal som lige er konverteret skrives ud til consolen.
+		System.out.println(romeTypes);
+		// Scanner scan = new Scanner(System.in);
+		// System.out.print("Skal jeg foresætte y/n? ");
+		// answar = scan.next();
+		// scan.close();
+		// }
 
-			System.out.println(romer + "         " + num);
-//				System.out.println("stop");
-			} else {
-//				System.out.println("ikke et passende nummer");
-			}
+	}
+
+	private static String consoleInputConvertToRome() {
+		// TODO Auto-generated method stub
+		Scanner scan = new Scanner(System.in);
+		System.out
+				.println("Du kan nu indtaste et tal og få dette konverteret til det Romerske tal");
+		System.out
+				.println("Tallet kan være mellem 0 og 3999, grunden til dette er begrænsninger i selve difinitionen på Romertal.");
+		System.out.println("Skriv tal her: ");
+		int num = scan.nextInt();
+		System.out.println("Tallet der vil blive konvertret er: " + num);
+		
+		if(num < 0 || num >3999){
+			scan.close();
+			throw new IllegalArgumentException("Du har givet et tal mindre end 0 eller mere end 3999, dette er ikke acceptapelt.");
 		}
+
+		// kalder metoden som laver konverteringen, denne tager tallet man lige
+		// har indtastet og retunerer en String med tallet.
+		String romer = konverterNummer(num);
+
+		scan.close();
+		return romer;
 	}
 
 	private static String konverterNummer(int i) {
@@ -29,76 +55,63 @@ public class Opgave1 {
 		String divisionTegnOver = "";
 		String divisionTegnMellemOver = "";
 		String divisionTegn = "M";
-		String divisionTegnMellemNed = "D";
-		String divisionTegnUnder = "C";
-
+		
 		while (i != 0) {
 			antal = tjekAntalOpIDivision(i, division);
-//			System.out.println(s);
-//			System.out.println(division);
-//			System.out.println(antal);
+			// System.out.println(s);
+			// System.out.println(division);
+			// System.out.println(antal);
 			if (antal == 0) {
 				s += "";
 			} else if (antal > 3) {
 				s = specialTal(antal, division, s, divisionTegnOver,
-						divisionTegnMellemOver, divisionTegn,
-						divisionTegnMellemNed, divisionTegnUnder);
+						divisionTegnMellemOver, divisionTegn);
 			} else if (antal <= 3) {
-				s = skrivRomerTal(antal, division, s, divisionTegnOver,
-						divisionTegnMellemOver, divisionTegn,
-						divisionTegnMellemNed, divisionTegnUnder);
+				s = skrivRomerTal(antal, division, s, divisionTegn);
 			}
 
 			i = i - (antal * division);
 			division = division / 10;
-			
+
 			if (division == 100) {
 				divisionTegnOver = "M";
 				divisionTegnMellemOver = "D";
 				divisionTegn = "C";
-				divisionTegnMellemNed = "L";
-				divisionTegnUnder = "X";
 			} else if (division == 10) {
 				divisionTegnOver = "C";
 				divisionTegnMellemOver = "L";
 				divisionTegn = "X";
-				divisionTegnMellemNed = "V";
-				divisionTegnUnder = "I";
 			} else if (division == 1) {
 				divisionTegnOver = "X";
 				divisionTegnMellemOver = "V";
 				divisionTegn = "I";
-				divisionTegnMellemNed = "";
-				divisionTegnUnder = "";
 			}
 		}
 
-//		if (i == 0) {
-//			System.out.println("nice der var ikke noget tilovers");
-//		} else {
-//			System.out.println("virker ikke");
-//		}
+		// if (i == 0) {
+		// System.out.println("nice der var ikke noget tilovers");
+		// } else {
+		// System.out.println("virker ikke");
+		// }
 		return s;
 	}
 
 	private static String skrivRomerTal(int antal, int division, String s,
-			String divisionTegnOver, String divisionTegnMellemOver,
-			String divisionTegn, String divisionTegnMellemNed,
-			String divisionTegnUnder) {
+			String divisionTegn) {
 		// TODO Auto-generated method stub
-//		System.out.println(division + "  " + antal + "   " + divisionTegn + "   "  + s);
+		// System.out.println(division + "  " + antal + "   " + divisionTegn +
+		// "   " + s);
 		for (int i = 0; i < antal; i++) {
 			s = s + divisionTegn;
 		}
-//		System.out.println(division + "  " + antal + "   " + divisionTegn + "   "  + s);
-
+		// System.out.println(division + "  " + antal + "   " + divisionTegn +
+		// "   " + s);
 		return s;
 	}
 
 	private static String specialTal(int antal, int division, String s,
 			String divisionTegnOver, String divisionTegnMellemOver,
-			String divisionTegn, String divisionTegnMellemNed,
-			String divisionTegnUnder) {
+			String divisionTegn) {
 		// TODO Auto-generated method stub
 		if (antal == 4) {
 			s += divisionTegn + divisionTegnMellemOver;
