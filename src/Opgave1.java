@@ -73,11 +73,11 @@ public class Opgave1 {
 			}
 		}
 
-		if (i == 0) {
+//		if (i == 0) {
 //			System.out.println("nice der var ikke noget tilovers");
-		} else {
+//		} else {
 //			System.out.println("virker ikke");
-		}
+//		}
 		return s;
 	}
 
