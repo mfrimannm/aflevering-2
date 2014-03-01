@@ -6,13 +6,13 @@ public class Opgave3 {
 		// Den laver et metode kald som giver en et sprøgsmål om antal
 		// iterationer. den vil retunerer en double med resultetet.
 		double nearPi = antalKastMedBuffonsNeedle();
-		System.out.println("tilnærmere værdi af Pi " + nearPi);
+		System.out.println("Tilnærmere værdi af Pi " + nearPi);
 	}
 
 	private static double antalKastMedBuffonsNeedle() {
 		// den bygger en scanner som så sprøg til antal iterationer som at man
 		// vil undersøge.
-		System.out.print("hvor mange kast vil du foretage? ");
+		System.out.print("Husk at tallet skal være en int altså IKKE over 2^31\nHvor mange kast vil du foretage? ");
 		Scanner scan = new Scanner(System.in);
 		int antalKast = scan.nextInt();
 		// vi giver ikke forsætte hvis vi kun skulle gøre det under 1 gang.
