@@ -46,7 +46,7 @@ public class Opgave3 {
 			double restLength = 0;
 			// og tjekker så hvis vi har nogen specil tilfælde som giver nemmere
 			// beregninger om vi kan køre disse bare.
-			if (a == 2 || a == 0) {
+			if (a == lengthBetweenLines || a == 0) {
 				hits++;
 //				System.out.print("var her");
 			} else {
@@ -66,8 +66,7 @@ public class Opgave3 {
 				// her tjekker jeg bare længderne og hvis det passer sådan at
 				// den er mere end 2 så må vi have et hit.
 				// eller den er under 0, hvilke bare ville betyde en forskydning, at den lå i det næste mellemrum.
-				if ((a + restLength) >= lengthBetweenLines
-						|| (a + restLength) <= 0) {
+				if ((a + restLength) >= lengthBetweenLines || (a + restLength) <= 0) {
 					hits++;
 				}
 			}
