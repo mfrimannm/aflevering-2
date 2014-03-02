@@ -116,7 +116,6 @@ public class Opgave1 {
 
 	private static String skrivRomerTal(int antal, int division, String s,
 			String divisionTegn) {
-		// TODO Auto-generated method stub
 		// System.out.println(division + "  " + antal + "   " + divisionTegn +
 		// "   " + s);
 		for (int i = 0; i < antal; i++) {
